@@ -1,6 +1,7 @@
 package br.com.sigad.domain.model.user;
 
 import br.com.sigad.domain.model.classifications.Confidentiality;
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -21,6 +22,7 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String authority;
 
     @ManyToMany(mappedBy = "roles")
